@@ -1,0 +1,75 @@
+// load teh variables from parent theme so we can use in our child theme
+@import '../soren/less/variables.less';
+
+@vulcan-accent:  #282828;
+
+// menu button
+.menu-btn {
+    color:@soren-bg-color;
+    background:@vulcan-accent;
+    padding:6px 8px;
+    &:hover {
+        
+    }
+}
+
+// header
+.vulcan-header-wrap {
+    position: relative;
+    display: table;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 5rem;
+    text-align: center;
+    background: @vulcan-accent;
+
+    .vulcan-header {
+        display: table-cell;
+        vertical-align: middle;
+
+        .vulcan-header-inner {
+            position: relative;
+            width: 80%;
+            max-width: @soren-width;
+            margin: 0 auto;
+
+            h1,h2 {
+                color:white;
+                margin:0;
+
+                a {
+                    color:white;
+                }
+            }
+
+            .vulcan-site-title {
+                font-weight:bold;
+            }
+
+            .vulcan-site-description {
+                font-size:1.75rem;
+                letter-spacing: 0.1rem;
+                color:white;
+            }
+        }
+    }
+}
+
+// posts
+article {
+    border-bottom:1px solid @baseContrast;
+    margin-bottom:2rem;
+    padding-bottom:1rem;
+
+    .soren-entry-title {
+        margin:1.5rem 0;
+        font-weight:bold;
+        color:@vulcan-accent;
+    }
+
+    .soren-entry-date {
+        font-family:@headings-font-family;
+        font-size:@font-size-xsmall;
+        color:@flip-text;
+    }
+}
