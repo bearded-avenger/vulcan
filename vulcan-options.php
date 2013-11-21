@@ -4,6 +4,18 @@ class vulcanCustomizer {
 
 	const version = '1.0';
 
+
+	public static function custom_colors($vars){
+
+		$opts 		 = get_option('soren_options') ? get_option('soren_options') : false;
+		$accent 	 = isset($opts['vulcan_accent']) ? $opts['vulcan_accent'] : false;
+
+		$vars[ 'vulcan-accent' ] 		= $accent ? $accent : '#282828';
+
+    	return $vars;
+
+	}
+
 	// leave as soren_options so options are serailzed into one array in db
 	private function opt_name() {
 
@@ -20,7 +32,7 @@ class vulcanCustomizer {
 		$options['vulcan_accent'] = array(
 			'name' 	=> __('Background Color', 'soren'),
 			'id' 	=> 'vulcan_accent',
-			'default' 	=> '#FFFFFF',
+			'default' 	=> '#282828',
 			'type' 	=> 'color'
 		);
 
@@ -54,3 +66,4 @@ class vulcanCustomizer {
 }
 // Setup the Theme Customizer settings and controls...
 add_action( 'customize_register' , array( 'vulcanCustomizer' , 'register' ) );
+add_filter( 'less_vars', array( 'vulcanCustomizer' , 'custom_colors'));
