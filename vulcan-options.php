@@ -7,7 +7,7 @@ class vulcanCustomizer {
 
 	public static function custom_colors($vars){
 
-		$opts 		 = get_option('soren_options') ? get_option('soren_options') : false;
+		$opts 		 = get_option('vulcan_options') ? get_option('vulcan_options') : false;
 		$accent 	 = isset($opts['vulcan_accent']) ? $opts['vulcan_accent'] : false;
 
 		$vars[ 'vulcan-accent' ] 		= $accent ? $accent : '#282828';
@@ -16,12 +16,12 @@ class vulcanCustomizer {
 
 	}
 
-	// leave as soren_options so options are serailzed into one array in db
+	// leave as vulcan_options so options are serailzed into one array in db
 	private function opt_name() {
 
-		$sorenopts = get_option('soren_options');
-		$sorenopts['id'] = 'soren_options';
-		update_option('soren_options', $sorenopts);
+		$sorenopts = get_option('vulcan_options');
+		$sorenopts['id'] = 'vulcan_options';
+		update_option('vulcan_options', $sorenopts);
 	}
 
 	// set defaults
@@ -51,14 +51,14 @@ class vulcanCustomizer {
 		) );
 
 		// BG Color
-		$wp_customize->add_setting( 'soren_options[vulcan_accent]', array(
+		$wp_customize->add_setting( 'vulcan_options[vulcan_accent]', array(
 			'type' => 'option',
 			'default'	=> $options['vulcan_accent']['default']
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'vulcan_accent', array(
 			'label' => $options['vulcan_accent']['name'],
 			'section' => 'vulcan_appearence',
-			'settings' => 'soren_options[vulcan_accent]'
+			'settings' => 'vulcan_options[vulcan_accent]'
 		) ) );
 
 	}
