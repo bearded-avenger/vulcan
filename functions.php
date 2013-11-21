@@ -16,8 +16,8 @@ class vulcanTheme {
 
 	public function styles(){
 
-		wp_enqueue_script('jquery');
-		wp_enqueue_style('soren-child-style', SOREN_CHILD_URL.'/style.less', true);
+		wp_enqueue_style('vulcan-style', SOREN_CHILD_URL.'/style.less', '1.0', true);
+		wp_enqueue_script('vulcan-script', SOREN_CHILD_URL.'/vulcan.js', array('jquery'), 1.0, true);
 	}
 
 	// filtering the main options with new defaults!

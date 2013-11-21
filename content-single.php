@@ -14,5 +14,5 @@
 		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'soren' ) ); ?>
 	</section>
 
-	<?php echo soren_post_shares();?>
+	<?php echo soren_post_shares(true);?>
 </article><!-- #post-## -->
