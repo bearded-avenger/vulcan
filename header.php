@@ -19,7 +19,7 @@
 <section class="push vulcan-header-wrap">
 	<div class="vulcan-header">
 		<div class="vulcan-header-inner">
-			<h1 class="vulcan-site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<h1 class="vulcan-site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="soren-fader" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<p class="vulcan-site-description"><?php bloginfo( 'description' ); ?></p>
 		</div>
 	</div>
