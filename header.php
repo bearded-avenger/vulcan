@@ -10,11 +10,13 @@
 
 <?php wp_head(); ?>
 </head>
-
+<?php do_action('soren_after_header'); //action ?>
 <body <?php body_class(); ?>>
 
+<?php do_action('soren_before_main'); //action ?>
+
 <!-- Vulcan Header -->
-<section class=" push vulcan-header-wrap">
+<section class="push vulcan-header-wrap">
 	<div class="vulcan-header">
 		<div class="vulcan-header-inner">
 			<h1 class="vulcan-site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -24,3 +26,5 @@
 </section>
 
 <?php soren_push_nav(); ?>
+
+<main id="container" class="soren-content">

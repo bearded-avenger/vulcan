@@ -1,6 +1,6 @@
 <?php
 
-class sorenChild {
+class vulcanTheme {
 
 	public function __construct(){
 
@@ -89,4 +89,4 @@ class sorenChild {
     	return $vars;
 	}
 }
-new sorenChild;
+new vulcanTheme;
