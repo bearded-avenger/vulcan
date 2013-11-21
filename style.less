@@ -87,3 +87,38 @@ article {
         .transition(.15s ease-in-out);
     }
 }
+
+//shares
+.soren-post-shares {
+    text-align: center;
+    a {
+        .opacity(0.35);
+        margin-right:0.75rem;
+        background: @vulcan-accent;
+        color:@soren-bg-color;
+        font-size:1.25rem;
+        padding:0.4rem;
+        border-radius:50%;
+        width:24px;
+        height:24px;
+        text-align: center;
+        display: inline-block;
+
+        i {
+            text-align: center;
+            line-height: 1rem;
+        }
+
+        &:hover {
+            color:@soren-bg-color;
+            .opacity(1.0);
+            background: @soren-link-color;
+            .transition(all .15s linear);
+            .rotate(360deg);
+        }
+
+        &:last-of-type {
+            margin-right:0;
+        }
+    }
+}
