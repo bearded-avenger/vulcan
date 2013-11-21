@@ -1,5 +1,6 @@
-// load teh variables from parent theme so we can use in our child theme
+// load teh variables and mixins from parent theme so we can use in our child theme
 @import '../soren/less/variables.less';
+@import '../soren/less/mixins.less';
 
 // menu button
 .menu-btn {
@@ -69,5 +70,16 @@ article {
         font-family:@headings-font-family;
         font-size:@font-size-xsmall;
         color:@flip-text;
+    }
+}
+
+//creds
+.soren-creds {
+    font-size:@font-size-small;
+    .opacity(0.3);
+
+    &:hover {
+        .opacity(0.85);
+        .transition(.15s ease-in-out);
     }
 }
