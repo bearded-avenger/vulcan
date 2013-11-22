@@ -199,17 +199,45 @@ article {
 }
 
 // comments
+#soren-comments-wrap {
+    font-size:@font-size-small;
+
+    .comment-metadata,
+    .fn {
+        text-transform: uppercase;
+        font-size:12px;
+        line-height:16px;
+        font-family: @font-family-sans-serif;
+    }
+    .comment-metadata a{
+        color:@soren-text-color;
+
+        &:hover {
+            color:@soren-link-color;
+        }
+    }
+}
 .comment-rss {
     position: relative;
-    padding-left:30px;
-    font-size:@font-size-small;
+    padding-left:22px;
+    font-size:@font-size-xsmall;
     font-family: @font-family-sans-serif;
+
+    a {
+        color:@flip-text;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
 
     &:before {
         content:'\f09e';
         font-family: 'FontAwesome';
         position: absolute;
         left:0;
+        top:1px;
+        color:@soren-link-color;
     }
 }
 
