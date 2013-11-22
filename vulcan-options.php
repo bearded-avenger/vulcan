@@ -30,10 +30,17 @@ class vulcanCustomizer {
 		$options = array();
 
 		$options['vulcan_accent'] = array(
-			'name' 	=> __('Background Color', 'soren'),
+			'name' 	=> __('Background Color', 'vulcan'),
 			'id' 	=> 'vulcan_accent',
 			'default' 	=> '#282828',
 			'type' 	=> 'color'
+		);
+
+		$options['vulcan_footer_text'] = array(
+			'name' 	=> __('Footer Text', 'vulcan'),
+			'id' 	=> 'vulcan_footer_text',
+			'default' 	=> 'Proudy Powered by Wordpress',
+			'type' 	=> 'text'
 		);
 
 		return $options;
@@ -46,7 +53,7 @@ class vulcanCustomizer {
 
 		// APPEARENCE
 		$wp_customize->add_section( 'vulcan_appearence', array(
-			'title' => __( 'Vulcan Appearence', 'soren' ),
+			'title' => __( 'Vulcan Options', 'vulcan' ),
 			'priority' => 100
 		) );
 
@@ -61,9 +68,56 @@ class vulcanCustomizer {
 			'settings' => 'vulcan_options[vulcan_accent]'
 		) ) );
 
+		// footer text
+
+		// Footer Text
+		$wp_customize->add_setting( 'vulcan_options[vulcan_footer_text]', array(
+            'default'           =>  $options['vulcan_footer_text']['default'],
+            'type'              => 'option',
+            'transport'         => 'postMessage',
+            'sanitize_callback' => self::sanitize_text_field(),
+        ) );
+        $wp_customize->add_control( new Soren_WP_Customize_Textarea_Control( $wp_customize, 'vulcan_options[vulcan_footer_text]', array(
+            'label'    => __( 'Footer Text', 'vulcan' ),
+            'section'  => 'vulcan_appearence',
+            'settings' => 'vulcan_options[vulcan_footer_text]',
+            'type' => $options['vulcan_footer_text']['type'],
+            'transport' => 'postMessage'
+        ) ) );
+
+	}
+
+	/*
+	* Uncomment this if you are going to use real time updating of text. you'll need to of course put a js file in your child theme with the right js calls
+	*/
+	public static function live_preview() {
+      	wp_enqueue_script('soren-themecustomizer',SOREN_CHILD_URL.'/theme-customizer.js', array( 'jquery','customize-preview' ), true);
+    }
+
+    // Sanitize Footer Text
+	private static function sanitize_footer_text( $input = '' ) {
+	    return stripslashes_deep( $input );
+	}
+
+	private static function sanitize_text_field( $input = ''  ) {
+		return sanitize_text_field( $input );
+	}
+
+	private static function sanitize_int( $input = ''  ) {
+		return wp_filter_nohtml_kses( round( $input ) );
+
 	}
 
 }
 // Setup the Theme Customizer settings and controls...
 add_action( 'customize_register' , array( 'vulcanCustomizer' , 'register' ) );
 add_filter( 'less_vars', array( 'vulcanCustomizer' , 'custom_colors'));
+
+
+// Enqueue live preview javascript in Theme Customizer admin screen
+// Uncomment this if you are using the real time updating as set in teh class above
+add_action( 'customize_preview_init' , array( 'vulcanCustomizer' , 'live_preview' ) );
+
+
+
+
