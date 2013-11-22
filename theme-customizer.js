@@ -12,4 +12,18 @@
 	    });
 	});
 
+	// Update the site title in real time...
+	wp.customize( 'blogname', function( value ) {
+	    value.bind( function( newval ) {
+	        $('.soren-site-name').html( newval );
+	    });
+	});
+
+	//Update the site description in real time...
+	wp.customize( 'blogdescription', function( value ) {
+	    value.bind( function( newval ) {
+	        $('.soren-site-description').html( newval );
+	    });
+	});
+
 })( jQuery );
