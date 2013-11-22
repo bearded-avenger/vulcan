@@ -158,3 +158,26 @@ article {
         }
     }
 }
+
+// pagination
+.soren-pagination {
+    text-align: center;
+    margin:2rem 0;
+    .page-numbers {
+        position: relative;
+        padding: 0.4rem 1rem;
+        text-decoration: none;
+        background-color: @pagination-bg;
+        border: 1px solid @pagination-border;
+        font-family:@headings-font-family;
+        font-size:@font-size-xsmall;
+
+        &:hover,
+        &.current {
+            color: @pagination-active-color;
+            background-color: @pagination-active-bg;
+            border-color: @pagination-active-bg;
+            .transition(all .15s ease-in-out);
+        }
+    }
+}
