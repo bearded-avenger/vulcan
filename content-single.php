@@ -21,7 +21,7 @@
 		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'vulcan' ) ); ?>
 	</section>
 
-	<footer class="vulcan-post-footer row">
+	<footer class="vulcan-post-footer">
 		<?php echo soren_post_author();?>
 	</footer>
 </article><!-- #post-## -->
