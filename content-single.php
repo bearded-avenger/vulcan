@@ -8,17 +8,17 @@
 
 	<header class="row">
 
-		<time class="soren-entry-date col-md-9" datetime="<?php the_date('F jS, Y'); ?>" itemprop="datePublished" pubdate><?php echo the_time('F jS, Y'); ?></time>
+		<time class="vulcan-meta col-md-9" datetime="<?php the_date('F jS, Y'); ?>" itemprop="datePublished" pubdate><?php echo the_time('F jS, Y'); ?></time>
 
 		<section class="vulcan-post-shares col-md-3">
 			<?php echo soren_post_shares(true);?>
 		</section>
 	</header>
 
-	<h2 class="soren-entry-title" itemprop="title"><a class="soren-fader" href="<?php the_permalink();?>"><?php the_title();?></a></h2>
+	<h2 class="vulcan-entry-title" itemprop="title"><a class="soren-fader" href="<?php the_permalink();?>"><?php the_title();?></a></h2>
 
-	<section class="soren-entry-content" itemprop="content">
-		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'soren' ) ); ?>
+	<section class="vulcan-entry-content" itemprop="content">
+		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'vulcan' ) ); ?>
 	</section>
 
 	<footer class="vulcan-post-footer row">
