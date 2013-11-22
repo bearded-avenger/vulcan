@@ -78,7 +78,7 @@ article {
 
     .soren-entry-date,
     .vulcan-meta {
-        font-family:@headings-font-family;
+        font-family:@font-family-sans-serif;
         font-size:@font-size-xsmall;
         color:@flip-text;
     }
@@ -115,7 +115,7 @@ article {
         }
         .soren-author-details {
             font-size:@font-size-xsmall;
-            font-family:@headings-font-family;
+            font-family:@font-family-sans-serif;
             margin-bottom:0;
         }
         .soren-author-link {
@@ -180,7 +180,7 @@ article {
         text-decoration: none;
         background-color: @pagination-bg;
         border: 1px solid @pagination-border;
-        font-family:@headings-font-family;
+        font-family:@font-family-sans-serif;
         font-size:@font-size-xsmall;
 
         &:hover,
@@ -197,3 +197,22 @@ article {
 .more-link{
     font-size:@font-size-small;
 }
+
+// comments
+.comment-rss {
+    position: relative;
+    padding-left:30px;
+    font-size:@font-size-small;
+    font-family: @font-family-sans-serif;
+
+    &:before {
+        content:'\f09e';
+        font-family: 'FontAwesome';
+        position: absolute;
+        left:0;
+    }
+}
+
+
+
+
