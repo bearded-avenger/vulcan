@@ -1,6 +1,12 @@
-jQuery(document).ready(function(){
-	jQuery('.show-soren-comments').click(function(event){
+(function($){
+	
+	$('.show-soren-comments').click(function(event){
 		event.preventDefault();
-		jQuery('#soren-comments-wrap').fadeToggle();
+		$('#soren-comments-wrap').fadeToggle();
+		$('html, body').animate({
+		        scrollTop: $( $(this).attr('href') ).offset().top
+		}, 500);
+		return false;
 	});
-});
+
+})( jQuery );
