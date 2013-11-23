@@ -59,7 +59,12 @@ class vulcanTheme {
 			'default' 	=> '22px',
 			'type' 	=> 'select'
 		);
-
+		$options['soren_width'] = array(
+			'name' 	=> __('Content Width', 'soren'),
+			'id' 	=> 'soren_width',
+			'default' 	=> 800,
+			'type' 	=> 'text'
+		);
 		$options['soren_ga'] = array(
 			'name' 	=> __('Google Analytics Tracking ID', 'soren'),
 			'id' 	=> 'soren_ga',
