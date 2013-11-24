@@ -22,6 +22,6 @@
 	</section>
 
 	<footer class="vulcan-post-footer">
-		<?php echo soren_post_author();?>
+		<?php echo soren_post_author(true);?>
 	</footer>
 </article><!-- #post-## -->
