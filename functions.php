@@ -52,7 +52,12 @@ class vulcanTheme {
 			'default' 	=> '#282828',
 			'type' 	=> 'color'
 		);
-
+		$options['font_face'] = array(
+			'name' 	=> __('Font', 'soren'),
+			'id' 	=> 'soren_font_face',
+			'default' 	=> 0,
+			'type' 	=> 'select'
+		);
 		$options['font_size'] = array(
 			'name' 	=> __('Font Size', 'soren'),
 			'id' 	=> 'font_size',
