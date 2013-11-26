@@ -11,7 +11,8 @@
 		<time class="vulcan-meta col-md-9" datetime="<?php the_date('F jS, Y'); ?>" itemprop="datePublished" pubdate><?php echo the_time('F jS, Y'); ?></time>
 
 		<section class="vulcan-post-shares col-md-3 tar">
-			<?php echo soren_post_shares(true);?>
+			<?php echo soren_post_shares();?>
+			<a class="show-soren-comments" href="#soren-comments-wrap"><i class="sorencon sorencon-comments"></i></a>
 		</section>
 	</header>
 
