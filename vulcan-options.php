@@ -30,7 +30,7 @@ class vulcanCustomizer {
 		$options = array();
 
 		$options['vulcan_accent'] = array(
-			'name' 	=> __('Background Color', 'vulcan'),
+			'name' 	=> __('Accent Color', 'vulcan'),
 			'id' 	=> 'vulcan_accent',
 			'default' 	=> '#282828',
 			'type' 	=> 'color'

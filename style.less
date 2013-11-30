@@ -24,12 +24,14 @@ h1, h2, h3, h4, h5, h6,
 }
 
 // menu button
-.menu-btn {
+body .menu-btn {
     color:@soren-bg-color;
     background:@vulcan-accent;
     padding:6px 8px;
+    top:20px;
+    left:20px;
     &:hover {
-        
+
     }
 }
 
@@ -42,6 +44,7 @@ h1, h2, h3, h4, h5, h6,
     margin-bottom: 5rem;
     text-align: center;
     background: @vulcan-accent;
+
 
     .vulcan-header {
         display: table-cell;
@@ -111,6 +114,7 @@ article {
 .single article {
     padding-bottom:0;
     border-bottom:none;
+    position: relative;
 }
 
 // Post Author
@@ -165,7 +169,7 @@ article {
 
 //shares
 .vulcan-post-shares {
-    text-align: center;
+    .clearfix();
     a {
         .opacity(0.35);
         margin-right:0.75rem;
@@ -177,7 +181,7 @@ article {
         width:24px;
         height:24px;
         text-align: center;
-        display: inline-block;
+       float: left;
 
         i {
             text-align: center;
@@ -190,10 +194,6 @@ article {
             background: @soren-link-color;
             .transition(all .15s linear);
             .rotate(360deg);
-        }
-
-        &:last-of-type {
-            margin-right:0;
         }
     }
 }
@@ -273,6 +273,40 @@ article {
     }
 }
 
+@media(max-width:810px){
 
+    body .menu-btn {
+        left:5px;
+    }
+}
+
+@media(max-width:768px){
+    article {
+        padding-left:25px;
+    }
+
+    body .menu-btn {
+        left:0;
+    }
+
+    .vulcan-post-footer .media.soren-post-author .soren-author-extended-wrap {
+        margin-top:1rem;
+        text-align: left;
+    }
+}
+
+@media(max-width:480px){
+    body.soren-responsive {
+        font-size: 1.5rem;
+        line-height: 1.9rem;
+        // menu button
+        .menu-btn {
+            top:5px;
+        }
+    }
+    article {
+        padding-left:20px;
+    }
+}
 
 

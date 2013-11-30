@@ -5,6 +5,14 @@ class vulcanTheme {
 	public function __construct(){
 
 		require_once('vulcan-options.php');
+
+		// Load Updater
+		if( !class_exists( 'EDD_SL_Theme_Updater' ) ) {
+			// load our custom updater
+			include( 'EDD_SL_Theme_Updater.php' );
+		}
+		require_once('updater.php');
+
 		add_action('wp_enqueue_scripts',array($this,'styles'));
 
 		// core soren less var filter
@@ -12,12 +20,15 @@ class vulcanTheme {
 
 		//default options filter
 		add_filter('soren_default_options', array($this,'filter_defaults'));
+
+				// translation
+		add_action('after_setup_theme', array($this,'textdomain'));
 	}
 
 	public function styles(){
 
 		wp_enqueue_style('vulcan-style', SOREN_CHILD_URL.'/style.less', '1.0', true);
-		wp_enqueue_script('vulcan-script', SOREN_CHILD_URL.'/vulcan.js', array('jquery'), 1.0, true);
+		wp_enqueue_script('vulcan-script', SOREN_CHILD_URL.'/vulcan.min.js', array('jquery'), 1.0, true);
 	}
 
 	// filtering the main options with new defaults!
@@ -26,55 +37,42 @@ class vulcanTheme {
 		$options = array();
 
 		$options['bg_color'] = array(
-			'name' 	=> __('Background Color', 'soren'),
+			'name' 	=> __('Background Color', 'vulcan'),
 			'id' 	=> 'bg_color',
 			'default' 	=> '#FFFFFF',
 			'type' 	=> 'color'
 		);
 
 		$options['link_color'] = array(
-			'name' 	=> __('Link Color', 'soren'),
+			'name' 	=> __('Link Color', 'vulcan'),
 			'id' 	=> 'link_color',
 			'default' 	=> '#07a1cd',
 			'type' 	=> 'color'
 		);
 
 		$options['text_color'] = array(
-			'name' 	=> __('Text Color', 'soren'),
+			'name' 	=> __('Text Color', 'vulcan'),
 			'id' 	=> 'soren_text_text',
 			'default' 	=> '#444444',
 			'type' 	=> 'color'
 		);
 
 		$options['header_color'] = array(
-			'name' 	=> __('Headings Color', 'soren'),
+			'name' 	=> __('Headings Color', 'vulcan'),
 			'id' 	=> 'soren_header_text',
 			'default' 	=> '#282828',
 			'type' 	=> 'color'
 		);
 		$options['font_size'] = array(
-			'name' 	=> __('Font Size', 'soren'),
+			'name' 	=> __('Font Size', 'vulcan'),
 			'id' 	=> 'font_size',
 			'default' 	=> '22px',
 			'type' 	=> 'select'
 		);
 		$options['soren_width'] = array(
-			'name' 	=> __('Content Width', 'soren'),
+			'name' 	=> __('Content Width', 'vulcan'),
 			'id' 	=> 'soren_width',
 			'default' 	=> 800,
-			'type' 	=> 'text'
-		);
-		$options['soren_ga'] = array(
-			'name' 	=> __('Google Analytics Tracking ID', 'soren'),
-			'id' 	=> 'soren_ga',
-			'default' 	=> ' ',
-			'type' 	=> 'text'
-		);
-
-		$options['soren_fb_app_id'] = array(
-			'name' 	=> __('Facebook APP ID', 'soren'),
-			'id' 	=> 'soren_fb_app_id',
-			'default' 	=> ' ',
 			'type' 	=> 'text'
 		);
 
@@ -91,6 +89,10 @@ class vulcanTheme {
 		$vars[ 'soren-headings-color' ]   = $headercolor ? $headercolor : '#282828';
 
     	return $vars;
+	}
+
+	function textdomain() {
+		load_theme_textdomain( 'vulcan_translation', SOREN_CHILD_DIR. '/lang' );
 	}
 }
 new vulcanTheme;
