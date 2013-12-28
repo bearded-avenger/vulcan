@@ -8,5 +8,6 @@
 		}, 500);
 		return false;
 	});
+	$('.video-container').fitVids();
 
 })( jQuery );
